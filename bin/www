@@ -21,17 +21,17 @@ var config = {
     messagingSenderId: "376341346069"
 };
 // mysql(需要有開mysql 這裡的mysql是光愷架的，若是他今天不在，資料庫沒開就需要註解調。
-// var con = mysql.createConnection({
-//   host: "192.168.0.135",
-//   path: "%",
-//   user: "newuser",
-//   password: "shield123"
-// });
-//
-// con.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Shield in MySQL Connected!");
-// });
+var con = mysql.createConnection({
+  host: "192.168.0.135",
+  path: "%",
+  user: "newuser",
+  password: "shield123"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Shield in MySQL Connected!");
+});
 // mysql
 firebase.initializeApp(config);
 
@@ -906,6 +906,36 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
        });
     }
     /*----------------------------------------------------主選單------------------------------------------------------------*/
+    //Other Demo
+    else if(event.message.type === 'text' && message_lineTochat.trim() === 'Demo') {
+                 io.sockets.emit('new message', {
+                     msg: '...',
+                     name: receiverId,
+                 });
+                 event.reply({
+                  "type": "template",
+                  "altText": "this is a buttons template",
+                  "template": {
+                      "type": "buttons",
+                      "title": "其他功能介紹",
+                      "text": "八方雲集/花旗銀行位置查詢\n嘿鬥餐廳菜單及訂位\n",
+                      "actions": [
+                          {
+                            "type": "message",
+                            "label": "查詢地點DEMO",
+                            "text": '查詢地點DEMO'
+                          },{
+                            "type": "message",
+                            "label": "餐廳訂位",
+                            "text": "菜單功能"
+                          },{
+                            "type": "message",
+                            "label": "衣服購物",
+                            "text": "購物車功能"
+                          }]
+                  }
+                });
+             }
     //Tiniline主選單
     else if(event.message.type === 'text' && message_lineTochat.trim() === 'Tini小精靈') {
                  io.sockets.emit('new message', {
@@ -1114,8 +1144,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                           "text": "S1-1"
                       },{
                         "type": "message",
-                          "label": '查看其他問題',
-                          "text": "Tini小精靈"
+                          "label": '-',
+                          "text": "-"
                       }]
                   }]
                   }
@@ -1172,8 +1202,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                           "text": "S2-1"
                       },{
                         "type": "message",
-                          "label": '查看其他問題',
-                          "text": "Tini小精靈"
+                          "label": '-',
+                          "text": "-"
                       }]
                   }]
                   }
@@ -1228,8 +1258,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                         "text": "S3-1"
                       },{
                         "type": "message",
-                        "label": '查看其他問題',
-                        "text": "Tini小精靈"
+                        "label": '-',
+                        "text": "-"
                       }]
                     }]
                   }
@@ -1284,8 +1314,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                         "text": "S4-1"
                       },{
                         "type": "message",
-                        "label": '查看其他問題',
-                        "text": "Tini小精靈"
+                        "label": '-',
+                        "text": "-"
                       }]
                     }]
                   }
@@ -1340,8 +1370,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                         "text": "S5-1"
                       },{
                         "type": "message",
-                        "label": '查看其他問題',
-                        "text": "Tini小精靈"
+                        "label": '-',
+                        "text": "-"
                       }]
                     }]
                   }
@@ -1396,8 +1426,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                         "text": "S6-1"
                       },{
                         "type": "message",
-                        "label": '查看其他問題',
-                        "text": "Tini小精靈"
+                        "label": '-',
+                        "text": "-"
                       }]
                     }]
                   }
@@ -1452,8 +1482,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                         "text": "S7-1"
                       },{
                         "type": "message",
-                        "label": '查看其他問題',
-                        "text": "Tini小精靈"
+                        "label": '-',
+                        "text": "-"
                       }]
                     }]
                   }
@@ -1508,8 +1538,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                         "text": "S8-1"
                       },{
                         "type": "message",
-                        "label": '查看其他問題',
-                        "text": "Tini小精靈"
+                        "label": '-',
+                        "text": "-"
                       }]
                     }]
                   }
@@ -1564,8 +1594,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                         "text": "S9-1"
                       },{
                         "type": "message",
-                        "label": '查看其他問題',
-                        "text": "Tini小精靈"
+                        "label": '-',
+                        "text": "-"
                       }]
                     }]
                   }
@@ -1620,8 +1650,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                         "text": "S10-1"
                       },{
                         "type": "message",
-                        "label": '查看其他問題',
-                        "text": "Tini小精靈"
+                        "label": '-',
+                        "text": "-"
                       }]
                     }]
                   }
@@ -1676,8 +1706,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                         "text": "S11-1"
                       },{
                         "type": "message",
-                        "label": '查看其他問題',
-                        "text": "Tini小精靈"
+                        "label": '-',
+                        "text": "-"
                       }]
                     }]
                   }
@@ -1732,8 +1762,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                         "text": "S12-1"
                       },{
                         "type": "message",
-                        "label": '查看其他問題',
-                        "text": "Tini小精靈"
+                        "label": '-',
+                        "text": "-"
                       }]
                     }]
                   }
@@ -1753,6 +1783,7 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                 console.log(groupName);
               }
                 //mysql 滿意度調查
+                //firebase DB行程相關問題
               else if(event.message.type === 'text' && message_lineTochat.trim() === '行程相關問題') {
                            event.reply({
                                "type": "template",
@@ -1837,8 +1868,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                                             "text": "P2-五次以上"
                                         },{
                                           "type": "message",
-                                            "label": '查看其他問題',
-                                            "text": "Tini小精靈"
+                                            "label": '-',
+                                            "text": "-"
                                         }]
                                     }]
                                     }
@@ -1919,8 +1950,8 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                                                           "text": "P4-5人以上"
                                                       },{
                                                         "type": "message",
-                                                          "label": '查看其他問題',
-                                                          "text": "Tini小精靈"
+                                                          "label": '-',
+                                                          "text": "-"
                                                       }]
                                                   }]
                                                   }
@@ -1936,6 +1967,7 @@ else if (event.message.type === 'text' && message_lineTochat.trim() === '旅遊'
                                                  }
                                                 }
                                                      }
+                                                     //firebase DB行程相關問題
 //↓此段現在沒有用處，(本來是用來寫進firebase DB)，之後為了改寫到mysql，所以可以不理會此段。
               else if(event.message.type === 'text' && message_lineTochat.trim() === '服務滿意度調查' || event.message.text.indexOf('Z4-') !== -1 ) {
                            event.reply({
